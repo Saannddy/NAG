@@ -30,21 +30,22 @@ class ArticleDetailPage extends StatelessWidget {
             fontWeight: FontWeight.w600,
           ),
         ),
+
         actions: [
           IconButton(
             icon: Icon(Icons.ios_share_outlined, color: Colors.grey[700]),
             onPressed: () {
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text('Share action triggered')),
-              );
+              ScaffoldMessenger.of(
+                context,
+              ).showSnackBar(const SnackBar(content: Text('Shared Clicked')));
             },
           ),
           IconButton(
             icon: Icon(Icons.bookmark_border_outlined, color: Colors.grey[700]),
             onPressed: () {
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(content: Text('Bookmark action triggered')),
-              );
+              ScaffoldMessenger.of(
+                context,
+              ).showSnackBar(const SnackBar(content: Text('Bookmark Clicked')));
             },
           ),
         ],
@@ -84,42 +85,7 @@ class ArticleDetailPage extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 10),
-                  if (article.id == '1')
-                    Align(
-                      alignment: Alignment.centerLeft,
-                      child: ActionChip(
-                        avatar: Icon(
-                          Icons.local_offer_outlined,
-                          size: 16,
-                          color: Colors.blueAccent[700],
-                        ),
-                        label: Text(
-                          'เลิฟซีนครั้งแรก',
-                          style: TextStyle(
-                            color: Colors.blueAccent[700],
-                            fontSize: 13,
-                          ),
-                        ),
-                        backgroundColor: Colors.blueAccent.withOpacity(0.1),
-                        onPressed: () {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(
-                              content: Text('Tag "เลิฟซีนครั้งแรก" tapped'),
-                            ),
-                          );
-                        },
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20.0),
-                          side: BorderSide(
-                            color: Colors.blueAccent.withOpacity(0.3),
-                          ),
-                        ),
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 8,
-                          vertical: 4,
-                        ),
-                      ),
-                    ),
+
                   const SizedBox(height: 16),
                   Text(
                     article.content,
@@ -130,21 +96,6 @@ class ArticleDetailPage extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 30),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: List.generate(3, (index) {
-                      return Container(
-                        width: 8,
-                        height: 8,
-                        margin: const EdgeInsets.symmetric(horizontal: 3),
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color:
-                              index == 0 ? Colors.blueAccent : Colors.grey[300],
-                        ),
-                      );
-                    }),
-                  ),
                 ],
               ),
             ),
